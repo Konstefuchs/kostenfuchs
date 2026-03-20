@@ -61,6 +61,10 @@ document.querySelectorAll('.time-filter-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.time-filter-btn').forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
+    const days = btn.dataset.days;
+    document.querySelectorAll('.kpi-card-footer').forEach((footer) => {
+      footer.textContent = `Letzte ${days} Tage`;
+    });
   });
 });
 
