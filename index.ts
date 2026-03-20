@@ -1,6 +1,7 @@
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
+import { Server } from 'socket.io';
 
 const PORT = 8000;
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
@@ -36,6 +37,24 @@ const server = http.createServer((req, res) => {
     }
     res.writeHead(200, { ...corsHeaders, 'Content-Type': contentType });
     res.end(data);
+  });
+});
+
+const io = new Server(server, {
+  cors: { origin: '*' },
+});
+
+io.on('connection', (socket) => {
+  console.log('Client verbunden:', socket.id);
+
+  socket.on('pipeline:value', (value: string, ack?: (data: object) => void) => {
+    const receivedAt = Date.now();
+    console.log(`[${new Date().toISOString()}] Empfangen via Socket: "${value}"`);
+    if (ack) ack({ serverReceivedAt: receivedAt });
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client getrennt:', socket.id);
   });
 });
 

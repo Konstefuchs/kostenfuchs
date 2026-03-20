@@ -5,8 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kostenfuchs</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
-<body class="min-h-screen flex items-center justify-center font-sans bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
-  <h1 class="text-5xl font-bold tracking-wide drop-shadow-lg bg-red-500">Hello World</h1>
+<body class="min-h-screen flex flex-col items-center justify-center gap-8 font-sans bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
+  <h1 class="text-4xl font-bold tracking-wide">Socket Pipeline</h1>
+
+  <div class="flex flex-col gap-4 w-full max-w-md">
+    <div class="flex gap-2">
+      <input
+        type="text"
+        id="valueInput"
+        placeholder="Wert eingeben..."
+        class="flex-1 px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+        autocomplete="off"
+      />
+      <button
+        id="sendBtn"
+        class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium transition-colors"
+      >
+        Senden
+      </button>
+    </div>
+
+    <div id="latencyDisplay" class="text-center py-4">
+      <span class="text-slate-400">Letzte Latenz: </span>
+      <span id="latencyMs" class="text-2xl font-mono font-bold text-emerald-400">—</span>
+      <span class="text-slate-400"> ms</span>
+    </div>
+
+    <div id="history" class="mt-4 space-y-2 max-h-48 overflow-y-auto"></div>
+  </div>
 </body>
+<script src="app.js"></script>
 </html>
