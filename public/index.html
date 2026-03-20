@@ -9,55 +9,86 @@
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
 <body>
-  <!-- macOS-style Nav Bar -->
-  <nav class="nav-bar">
-    <div class="nav-left">
-      <span class="nav-brand">KostenFuchs</span>
-      <div class="nav-menu">
-        <div class="nav-item" data-menu="navigation">
-          <span>Navigation</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-grid"></span>Dashboard</a></li>
-          </ul>
-        </div>
-        <div class="nav-item" data-menu="lead">
-          <span>Lead & Vertrieb</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-user"></span>Leadübersicht</a></li>
-            <li><a href="#"><span class="nav-icon nav-icon-doc"></span>Vertragseingabe</a></li>
-            <li><a href="#"><span class="nav-icon nav-icon-calc"></span>Tarifvergleich</a></li>
-          </ul>
-        </div>
-        <div class="nav-item" data-menu="kunden">
-          <span>Kunden & Verträge</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-home"></span>Kundenübersicht</a></li>
-            <li><a href="#"><span class="nav-icon nav-icon-archive"></span>Vertragsübersicht</a></li>
-          </ul>
-        </div>
-        <div class="nav-item" data-menu="produkte">
-          <span>Produkte & Preise</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-euro"></span>Produktübersicht</a></li>
-          </ul>
-        </div>
-        <div class="nav-item" data-menu="team">
-          <span>Team & Provisionen</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-team"></span>Teamübersicht</a></li>
-            <li><a href="#"><span class="nav-icon nav-icon-percent"></span>Provisionsübersicht</a></li>
-          </ul>
-        </div>
-        <div class="nav-item" data-menu="dokumente">
-          <span>Dokumente & Tools</span>
-          <ul class="nav-dropdown">
-            <li><a href="#"><span class="nav-icon nav-icon-folder"></span>Dokumenten Archiv</a></li>
-            <li><a href="#"><span class="nav-icon nav-icon-cap"></span>Schulungsunterlagen</a></li>
-          </ul>
-        </div>
+  <aside class="sidebar">
+    <div class="sidebar-brand">KostenFuchs</div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Navigation</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-grid"></span>
+          Dashboard
+        </a>
       </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Lead & Vertrieb</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-user"></span>
+          Leadübersicht
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-doc"></span>
+          Vertragseingabe
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-calc"></span>
+          Tarifvergleich
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Kunden & Verträge</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-home"></span>
+          Kundenübersicht
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-archive"></span>
+          Vertragsübersicht
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Produkte & Preise</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-euro"></span>
+          Produktübersicht
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Team & Provisionen</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-team"></span>
+          Teamübersicht
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-percent"></span>
+          Provisionsübersicht
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Dokumente & Tools</span>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-folder"></span>
+          Dokumenten Archiv
+        </a>
+        <a href="#" class="nav-link">
+          <span class="nav-icon nav-icon-cap"></span>
+          Schulungsunterlagen
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="nav-link nav-link-logout">
+        <span class="nav-icon nav-icon-logout"></span>
+        Abmelden
+      </a>
     </div>
-  </nav>
+  </aside>
 
   <main class="main-content"></main>
 </body>
