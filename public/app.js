@@ -1,6 +1,25 @@
 /* Socket-Pipeline-Logik bleibt aktiv (ohne sichtbare UI) */
 const socket = io(window.location.origin, { path: '/socket.io' });
 
+/* Dark Mode Toggle */
+const THEME_KEY = 'kostenfuchs-theme';
+
+function getTheme() {
+  return localStorage.getItem(THEME_KEY) || 'light';
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : 'light');
+  localStorage.setItem(THEME_KEY, theme);
+}
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const current = getTheme();
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+setTheme(getTheme());
+
 /* Routing – #/auth = Auth-Seite, sonst Dashboard */
 function updateRoute() {
   const isAuth = window.location.hash === '#/auth';
