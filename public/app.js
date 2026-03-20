@@ -38,16 +38,29 @@ document.getElementById('sidebarToggle').addEventListener('click', () => {
 
 setSidebarCollapsed(getSidebarCollapsed());
 
-/* Dynamischer Seitentitel + Active State */
+/* Dynamischer Seitentitel + Subtitle + Active State */
 const pageTitleEl = document.getElementById('pageTitle');
+const pageHeroTitleEl = document.getElementById('pageHeroTitle');
+const pageHeroSubtitleEl = document.getElementById('pageHeroSubtitle');
 
 document.querySelectorAll('.nav-link[data-page]').forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
     const title = link.dataset.page;
+    const subtitle = link.dataset.subtitle || '';
     pageTitleEl.textContent = title;
+    if (pageHeroTitleEl) pageHeroTitleEl.textContent = title;
+    if (pageHeroSubtitleEl) pageHeroSubtitleEl.textContent = subtitle;
     document.querySelectorAll('.nav-link').forEach((l) => l.classList.remove('active'));
     link.classList.add('active');
+  });
+});
+
+/* Time Filter Buttons */
+document.querySelectorAll('.time-filter-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.time-filter-btn').forEach((b) => b.classList.remove('active'));
+    btn.classList.add('active');
   });
 });
 
