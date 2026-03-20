@@ -1,5 +1,5 @@
 {
-  "watch": ["*.ts", "public"],
-  "ext": "ts,html,css",
+  "watch": ["*.ts"],
+  "ext": "ts",
   "exec": "ts-node index.ts"
 }

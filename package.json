@@ -6,17 +6,22 @@
   "scripts": {
     "build": "tsc && npm run build:css",
     "build:css": "tailwindcss -i ./src/input.css -o ./public/style.css",
-    "build:css:watch": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
     "start": "node dist/index.js",
-    "dev": "concurrently \"nodemon\" \"npm run dev:css\"",
-    "dev:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch"
+    "dev": "concurrently -k -n server,css,html,reload -c blue,green,magenta,yellow \"npm run dev:server\" \"npm run dev:css\" \"npm run dev:html\" \"npm run dev:reload\"",
+    "dev:server": "nodemon",
+    "dev:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+    "dev:html": "nodemon --watch public --ext html --exec \"npm run build:css\"",
+    "dev:reload": "wait-on http://localhost:8000 && browser-sync start --config bs-config.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.2",
     "@types/node": "^22.0.0",
+    "browser-sync": "^3.0.4",
+    "concurrently": "^9.2.1",
     "nodemon": "^3.1.0",
     "tailwindcss": "^4.2.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.0"
+    "typescript": "^5.6.0",
+    "wait-on": "^9.0.4"
   }
 }
