@@ -104,6 +104,12 @@ body {
   color: var(--sidebar-text);
 }
 
+.app-container {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+}
+
 .app-layout {
   flex: 1;
   display: flex;
@@ -156,7 +162,8 @@ body {
 }
 
 .auth-trigger {
-  display: flex;
+  display: inline-flex;
+  text-decoration: none;
   align-items: center;
   gap: 10px;
   padding: 6px 12px;
@@ -186,7 +193,37 @@ body {
   font-weight: 600;
 }
 
-/* Auth Container – Login/Signup */
+/* Auth Page – eigene Route #/auth */
+.auth-page {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--main-bg);
+  flex-direction: column;
+  z-index: 2000;
+}
+
+.auth-page.active {
+  display: flex;
+}
+
+.auth-back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 8px 12px;
+  color: var(--sidebar-text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.auth-back:hover {
+  color: var(--sidebar-text);
+  background: var(--sidebar-hover);
+}
+
 .auth-container {
   flex: 1;
   display: flex;

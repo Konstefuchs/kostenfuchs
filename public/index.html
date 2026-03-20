@@ -9,9 +9,9 @@
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
 <body>
+  <div class="app-container" id="appContainer">
   <aside class="sidebar">
     <div class="sidebar-brand">KostenFuchs</div>
-
     <nav class="sidebar-nav">
       <div class="nav-section">
         <span class="nav-section-title">Navigation</span>
@@ -74,7 +74,6 @@
       </a>
     </div>
   </aside>
-
   <div class="app-layout">
     <header class="main-header">
       <div class="header-spacer"></div>
@@ -82,14 +81,19 @@
         <button class="icon-btn" aria-label="Benachrichtigungen">
           <span class="icon-bell"></span>
         </button>
-        <button class="auth-trigger" id="authTrigger">
+        <a href="#/auth" class="auth-trigger" id="authTrigger">
           <span class="avatar-placeholder">A</span>
           <span>Anmelden</span>
-        </button>
+        </a>
       </div>
     </header>
+    <div class="main-content-area"></div>
+  </div>
+  </div>
 
-    <div class="auth-container" id="authContainer">
+  <div class="auth-page" id="authPage">
+    <a href="#/" class="auth-back" id="authBack">← Zurück</a>
+    <div class="auth-container">
       <div class="auth-card">
         <div class="auth-tabs">
           <button class="auth-tab active" data-view="login">Anmelden</button>

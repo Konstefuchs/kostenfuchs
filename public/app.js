@@ -1,6 +1,16 @@
 /* Socket-Pipeline-Logik bleibt aktiv (ohne sichtbare UI) */
 const socket = io(window.location.origin, { path: '/socket.io' });
 
+/* Routing – #/auth = Auth-Seite, sonst Dashboard */
+function updateRoute() {
+  const isAuth = window.location.hash === '#/auth';
+  document.getElementById('appContainer').style.display = isAuth ? 'none' : 'flex';
+  document.getElementById('authPage').classList.toggle('active', isAuth);
+}
+
+window.addEventListener('hashchange', updateRoute);
+updateRoute();
+
 /* Auth UI – Tab-Wechsel, Formulare (noch keine echte Auth) */
 document.querySelectorAll('.auth-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
