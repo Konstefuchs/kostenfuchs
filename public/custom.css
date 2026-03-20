@@ -562,35 +562,37 @@ body {
   outline: none;
 }
 
-.time-filter-btn:hover {
+.time-filter-btn:not(.active):hover {
   background: var(--sidebar-hover);
 }
 
-.time-filter-btn:active {
+.time-filter-btn:not(.active):active {
   background: linear-gradient(90deg, #c084fc 0%, #38bdf8 100%);
   color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
 }
 
-[data-theme="dark"] .time-filter-btn {
+[data-theme="dark"] .time-filter-btn:not(.active) {
   background: #161616;
   border-color: #222222;
 }
 
-[data-theme="dark"] .time-filter-btn:hover {
+[data-theme="dark"] .time-filter-btn:not(.active):hover {
   background: #1c1c1c;
 }
 
-.time-filter-btn.active {
+.time-filter-btn.active,
+.time-filter-btn.active:hover,
+.time-filter-btn.active:active {
   background: linear-gradient(90deg, #c084fc 0%, #38bdf8 100%);
   color: #ffffff;
   border: none;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+  filter: none;
 }
 
 .time-filter-btn.active:hover,
 .time-filter-btn.active:active {
-  filter: brightness(1.08);
-  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.45);
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
 }
