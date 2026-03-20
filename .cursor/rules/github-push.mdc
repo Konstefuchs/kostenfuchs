@@ -1,0 +1,13 @@
+---
+description: Nach Code-Änderungen automatisch zu GitHub pushen
+alwaysApply: true
+---
+
+# GitHub Push nach Änderungen
+
+Nach jeder Code-Änderung, die du vornimmst:
+
+1. **Commit** die Änderungen mit einer aussagekräftigen Commit-Message
+2. **Push** direkt zu GitHub (`git push`)
+
+Mache das von selbst, ohne dass der Nutzer danach fragen muss. Das gehört zum Abschluss jeder Änderung dazu.
