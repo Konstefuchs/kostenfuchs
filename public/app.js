@@ -29,10 +29,9 @@ function sendValue() {
 
 function addToHistory(value, ms) {
   const entry = document.createElement('div');
-  entry.className = 'flex justify-between items-center py-2 px-3 rounded bg-slate-700/30 text-sm';
   entry.innerHTML = `
-    <span class="text-slate-300">"${escapeHtml(value)}"</span>
-    <span class="font-mono text-emerald-400">${ms} ms</span>
+    <span>"${escapeHtml(value)}"</span>
+    <span>${ms} ms</span>
   `;
   historyEl.insertBefore(entry, historyEl.firstChild);
 }

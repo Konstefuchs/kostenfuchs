@@ -3,38 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kostenfuchs</title>
+  <title>KostenFuchs</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="custom.css">
   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center gap-8 font-sans bg-gradient-to-br from-slate-900 to-slate-800 text-slate-100">
-  <h1 class="text-4xl font-bold tracking-wide">Socket Pipeline</h1>
-
-  <div class="flex flex-col gap-4 w-full max-w-md">
-    <div class="flex gap-2">
-      <input
-        type="text"
-        id="valueInput"
-        placeholder="Wert eingeben..."
-        class="flex-1 px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
-        autocomplete="off"
-      />
-      <button
-        id="sendBtn"
-        class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium transition-colors"
-      >
-        Senden
-      </button>
+<body>
+  <!-- macOS-style Nav Bar -->
+  <nav class="nav-bar">
+    <div class="nav-left">
+      <span class="nav-brand">KostenFuchs</span>
+      <div class="nav-menu">
+        <div class="nav-item" data-menu="navigation">
+          <span>Navigation</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-grid"></span>Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" data-menu="lead">
+          <span>Lead & Vertrieb</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-user"></span>Leadübersicht</a></li>
+            <li><a href="#"><span class="nav-icon nav-icon-doc"></span>Vertragseingabe</a></li>
+            <li><a href="#"><span class="nav-icon nav-icon-calc"></span>Tarifvergleich</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" data-menu="kunden">
+          <span>Kunden & Verträge</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-home"></span>Kundenübersicht</a></li>
+            <li><a href="#"><span class="nav-icon nav-icon-archive"></span>Vertragsübersicht</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" data-menu="produkte">
+          <span>Produkte & Preise</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-euro"></span>Produktübersicht</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" data-menu="team">
+          <span>Team & Provisionen</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-team"></span>Teamübersicht</a></li>
+            <li><a href="#"><span class="nav-icon nav-icon-percent"></span>Provisionsübersicht</a></li>
+          </ul>
+        </div>
+        <div class="nav-item" data-menu="dokumente">
+          <span>Dokumente & Tools</span>
+          <ul class="nav-dropdown">
+            <li><a href="#"><span class="nav-icon nav-icon-folder"></span>Dokumenten Archiv</a></li>
+            <li><a href="#"><span class="nav-icon nav-icon-cap"></span>Schulungsunterlagen</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </nav>
 
-    <div id="latencyDisplay" class="text-center py-4">
-      <span class="text-slate-400">Letzte Latenz: </span>
-      <span id="latencyMs" class="text-2xl font-mono font-bold text-emerald-400">—</span>
-      <span class="text-slate-400"> ms</span>
-    </div>
-
-    <div id="history" class="mt-4 space-y-2 max-h-48 overflow-y-auto"></div>
-  </div>
+  <!-- Minimal Pipeline (Logik bleibt, UI reduziert) -->
+  <main class="main-content">
+    <input type="text" id="valueInput" placeholder="Wert eingeben..." autocomplete="off" />
+    <button id="sendBtn">Senden</button>
+    <span id="latencyMs">—</span> ms
+    <div id="history"></div>
+  </main>
 </body>
 <script src="app.js"></script>
 </html>
