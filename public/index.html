@@ -13,73 +13,75 @@
 </head>
 <body>
   <div class="app-container" id="appContainer">
-  <aside class="sidebar">
-    <div class="sidebar-brand">KostenFuchs</div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="brand-text">KostenFuchs</span>
+    </div>
     <nav class="sidebar-nav">
       <div class="nav-section">
         <span class="nav-section-title">Navigation</span>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link active" data-page="Dashboard" title="Dashboard">
           <span class="nav-icon nav-icon-grid"></span>
-          Dashboard
+          <span class="nav-label">Dashboard</span>
         </a>
       </div>
-
       <div class="nav-section">
         <span class="nav-section-title">Lead & Vertrieb</span>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Leadübersicht" title="Leadübersicht">
           <span class="nav-icon nav-icon-user"></span>
-          Leadübersicht
+          <span class="nav-label">Leadübersicht</span>
         </a>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Vertragseingabe" title="Vertragseingabe">
           <span class="nav-icon nav-icon-doc"></span>
-          Vertragseingabe
+          <span class="nav-label">Vertragseingabe</span>
         </a>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Tarifvergleich" title="Tarifvergleich">
           <span class="nav-icon nav-icon-calc"></span>
-          Tarifvergleich
+          <span class="nav-label">Tarifvergleich</span>
         </a>
       </div>
-
       <div class="nav-section">
         <span class="nav-section-title">Kunden & Verträge</span>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Kundenübersicht" title="Kundenübersicht">
           <span class="nav-icon nav-icon-home"></span>
-          Kundenübersicht
+          <span class="nav-label">Kundenübersicht</span>
         </a>
       </div>
-
       <div class="nav-section">
         <span class="nav-section-title">Produkte & Preise</span>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Produktübersicht" title="Produktübersicht">
           <span class="nav-icon nav-icon-euro"></span>
-          Produktübersicht
+          <span class="nav-label">Produktübersicht</span>
         </a>
       </div>
-
       <div class="nav-section">
         <span class="nav-section-title">Team & Provisionen</span>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Teamübersicht" title="Teamübersicht">
           <span class="nav-icon nav-icon-team"></span>
-          Teamübersicht
+          <span class="nav-label">Teamübersicht</span>
         </a>
-        <a href="#" class="nav-link">
+        <a href="#" class="nav-link" data-page="Provisionsübersicht" title="Provisionsübersicht">
           <span class="nav-icon nav-icon-percent"></span>
-          Provisionsübersicht
+          <span class="nav-label">Provisionsübersicht</span>
         </a>
       </div>
-
     </nav>
-
     <div class="sidebar-footer">
-      <a href="#" class="nav-link nav-link-logout">
+      <a href="#" class="nav-link nav-link-logout" title="Abmelden">
         <span class="nav-icon nav-icon-logout"></span>
-        Abmelden
+        <span class="nav-label">Abmelden</span>
       </a>
     </div>
   </aside>
   <div class="app-layout">
     <header class="main-header">
-      <div class="header-spacer"></div>
+      <div class="header-left">
+        <button class="sidebar-toggle icon-btn" id="sidebarToggle" aria-label="Sidebar ein-/ausklappen">
+          <span class="icon-sidebar"></span>
+        </button>
+        <div class="header-divider"></div>
+        <h1 class="page-title" id="pageTitle">Dashboard</h1>
+      </div>
       <div class="header-actions">
         <button class="theme-toggle icon-btn" id="themeToggle" aria-label="Dark Mode umschalten">
           <span class="icon-sun" aria-hidden="true"></span>

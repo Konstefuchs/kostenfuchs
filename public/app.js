@@ -20,6 +20,37 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 
 setTheme(getTheme());
 
+/* Sidebar Collapse */
+const SIDEBAR_KEY = 'kostenfuchs-sidebar-collapsed';
+
+function getSidebarCollapsed() {
+  return localStorage.getItem(SIDEBAR_KEY) === 'true';
+}
+
+function setSidebarCollapsed(collapsed) {
+  document.getElementById('sidebar').classList.toggle('collapsed', collapsed);
+  localStorage.setItem(SIDEBAR_KEY, collapsed);
+}
+
+document.getElementById('sidebarToggle').addEventListener('click', () => {
+  setSidebarCollapsed(!getSidebarCollapsed());
+});
+
+setSidebarCollapsed(getSidebarCollapsed());
+
+/* Dynamischer Seitentitel + Active State */
+const pageTitleEl = document.getElementById('pageTitle');
+
+document.querySelectorAll('.nav-link[data-page]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const title = link.dataset.page;
+    pageTitleEl.textContent = title;
+    document.querySelectorAll('.nav-link').forEach((l) => l.classList.remove('active'));
+    link.classList.add('active');
+  });
+});
+
 /* Routing – #/auth = Auth-Seite, sonst Dashboard */
 function updateRoute() {
   const isAuth = window.location.hash === '#/auth';

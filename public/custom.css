@@ -50,6 +50,45 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  transition: width 0.2s ease;
+}
+
+.sidebar.collapsed {
+  width: 64px;
+}
+
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .nav-section-title,
+.sidebar.collapsed .brand-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+  padding: 10px;
+  gap: 0;
+}
+
+.sidebar.collapsed .sidebar-brand {
+  justify-content: center;
+  padding: 20px 12px;
+}
+
+.sidebar.collapsed .nav-section {
+  margin-bottom: 16px;
+}
+
+.sidebar.collapsed .nav-section-title {
+  height: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 .sidebar-brand {
@@ -58,6 +97,13 @@ body {
   font-weight: 600;
   color: var(--sidebar-text);
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  transition: padding 0.2s ease;
+}
+
+.brand-text {
+  transition: opacity 0.2s ease;
 }
 
 .sidebar-nav {
@@ -78,6 +124,7 @@ body {
   color: var(--sidebar-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: opacity 0.2s ease;
 }
 
 .nav-link {
@@ -90,11 +137,23 @@ body {
   font-size: 14px;
   font-weight: 500;
   border-radius: 8px;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, padding 0.2s ease;
 }
 
 .nav-link:hover {
   background: var(--sidebar-hover);
+}
+
+.nav-link.active {
+  background: var(--sidebar-hover);
+}
+
+[data-theme='dark'] .nav-link.active {
+  background: #1c1c1c;
+}
+
+.nav-label {
+  transition: opacity 0.2s ease;
 }
 
 .nav-icon {
@@ -158,8 +217,34 @@ body {
   background: var(--main-bg);
 }
 
-.header-spacer {
-  flex: 1;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.header-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--sidebar-border);
+  margin: 0 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--sidebar-text);
+}
+
+.icon-sidebar {
+  width: 20px;
+  height: 20px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23171717' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='18' rx='1'/%3E%3Crect x='14' y='3' width='7' height='18' rx='1'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+[data-theme='dark'] .icon-sidebar {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7' height='18' rx='1'/%3E%3Crect x='14' y='3' width='7' height='18' rx='1'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 
 .header-actions {
