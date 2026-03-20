@@ -509,9 +509,12 @@ body {
   cursor: pointer;
   transition: filter 0.15s ease, box-shadow 0.15s ease;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
   filter: brightness(1.08);
   box-shadow: 0 4px 20px rgba(56, 189, 248, 0.45);
 }
@@ -551,14 +554,23 @@ body {
   font-family: inherit;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
   background: var(--main-bg);
   color: var(--sidebar-text);
   border: 1px solid var(--sidebar-border);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
 .time-filter-btn:hover {
   background: var(--sidebar-hover);
+}
+
+.time-filter-btn:active {
+  background: linear-gradient(90deg, #c084fc 0%, #38bdf8 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
 }
 
 [data-theme="dark"] .time-filter-btn {
@@ -577,7 +589,8 @@ body {
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.35);
 }
 
-.time-filter-btn.active:hover {
+.time-filter-btn.active:hover,
+.time-filter-btn.active:active {
   filter: brightness(1.08);
   box-shadow: 0 4px 20px rgba(56, 189, 248, 0.45);
 }
