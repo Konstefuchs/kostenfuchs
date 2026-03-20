@@ -75,7 +75,65 @@
     </div>
   </aside>
 
-  <main class="main-content"></main>
+  <div class="app-layout">
+    <header class="main-header">
+      <div class="header-spacer"></div>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Benachrichtigungen">
+          <span class="icon-bell"></span>
+        </button>
+        <button class="auth-trigger" id="authTrigger">
+          <span class="avatar-placeholder">A</span>
+          <span>Anmelden</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="auth-container" id="authContainer">
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-view="login">Anmelden</button>
+          <button class="auth-tab" data-view="signup">Registrieren</button>
+        </div>
+
+        <div class="auth-view active" id="loginView">
+          <h1 class="auth-title">Willkommen zurück</h1>
+          <p class="auth-subtitle">Melde dich mit deinem Konto an</p>
+          <form class="auth-form" id="loginForm">
+            <div class="form-group">
+              <label for="loginEmail">E-Mail</label>
+              <input type="email" id="loginEmail" placeholder="name@beispiel.de" required />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword">Passwort</label>
+              <input type="password" id="loginPassword" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn-primary">Anmelden</button>
+          </form>
+        </div>
+
+        <div class="auth-view" id="signupView">
+          <h1 class="auth-title">Konto erstellen</h1>
+          <p class="auth-subtitle">Registriere dich für KostenFuchs</p>
+          <form class="auth-form" id="signupForm">
+            <div class="form-group">
+              <label for="signupName">Name</label>
+              <input type="text" id="signupName" placeholder="Max Mustermann" required />
+            </div>
+            <div class="form-group">
+              <label for="signupEmail">E-Mail</label>
+              <input type="email" id="signupEmail" placeholder="name@beispiel.de" required />
+            </div>
+            <div class="form-group">
+              <label for="signupPassword">Passwort</label>
+              <input type="password" id="signupPassword" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn-primary">Registrieren</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="app.js"></script>
 </html>
